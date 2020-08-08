@@ -1,0 +1,19 @@
+section{
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(250, 226, 181);
+    padding: 3em;
+    text-align: center;
+}
+
+.input_data{
+    margin: 2em;
+}
+
+.btn{
+    background-color: rgb(80, 30, 128);
+    font-size: 20px;
+    padding: 1em;
+    color: white;
+    border-radius: 30%;
+}
