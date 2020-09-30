@@ -151,6 +151,9 @@ class DateDisplayFormatter {
     }
   
     format(date, inputRegex, outputReg) {
+      if(date.length !== inputRegex.length){
+          return "Invalid input format";
+      }
       if (inputRegex == "ms") {
         let inputDate = new Date(parseInt(date));
   
