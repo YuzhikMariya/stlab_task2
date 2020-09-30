@@ -1,6 +1,6 @@
 class DateDisplayFormatter {
 
-    getMonthString(number) {
+    static getMonthString(number) {
       const JAN = "January";
       const FEB = "February";
       const MAR = "March";
@@ -22,7 +22,7 @@ class DateDisplayFormatter {
       }
     }
   
-    getDateIndexes(regex) {
+    static getDateIndexes(regex) {
       let obj = {
         yearArr: [-1, -1, -1, -1],
         monthArr: [-1, -1],
@@ -56,7 +56,7 @@ class DateDisplayFormatter {
       return obj;
     }
   
-    getDays(date, inputRegexObj) {
+    static getDays(date, inputRegexObj) {
       let startDay = inputRegexObj.dayArr;
   
       let dayStr = "";
@@ -70,7 +70,7 @@ class DateDisplayFormatter {
       return day;
     }
   
-    getMonths(date, inputRegexObj) {
+    static getMonths(date, inputRegexObj) {
       let startMonth = inputRegexObj.monthArr;
   
       let monthStr = "";
@@ -84,7 +84,7 @@ class DateDisplayFormatter {
       return month;
     }
   
-    getYears(date, inputRegexObj) {
+    static getYears(date, inputRegexObj) {
       let startYear = inputRegexObj.yearArr;
   
       let yearStr = "";
@@ -104,7 +104,7 @@ class DateDisplayFormatter {
       return year;
     }
   
-    getDateByRegex(date, inputRegexObj, outputReg) {
+    static getDateByRegex(date, inputRegexObj, outputReg) {
       let startDay = inputRegexObj.dayArr;
       let startMonth = inputRegexObj.monthArr;
       let startYear = inputRegexObj.yearArr;
@@ -150,7 +150,7 @@ class DateDisplayFormatter {
       return outputRegex.join("");
     }
   
-    format(date, inputRegex, outputReg) {
+    static format(date, inputRegex, outputReg) {
       if(date.length !== inputRegex.length){
           return "Invalid input format";
       }

@@ -1,5 +1,4 @@
 let form = document.querySelector('form');
-let dateHandler = new DateDisplayFormatter();
 
 form.onsubmit = () => {
     let date = document.querySelector('#date').value;
@@ -10,6 +9,6 @@ form.onsubmit = () => {
 
     let outputRegex = document.querySelector('#output_regex').value;
 
-    document.querySelector('#answer').textContent = dateHandler.format(date, inputRegex, outputRegex);
+    document.querySelector('#answer').textContent = DateDisplayFormatter.format(date, inputRegex, outputRegex);
     return false;
 }
