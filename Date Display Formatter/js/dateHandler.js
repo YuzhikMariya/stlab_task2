@@ -1,32 +1,24 @@
 class DateDisplayFormatter {
+
     getMonthString(number) {
-      switch (number) {
-        case 1:
-          return "January";
-        case 2:
-          return "February";
-        case 3:
-          return "March";
-        case 4:
-          return "April";
-        case 5:
-          return "May";
-        case 6:
-          return "June";
-        case 7:
-          return "July";
-        case 8:
-          return "August";
-        case 9:
-          return "September";
-        case 10:
-          return "October";
-        case 11:
-          return "November";
-        case 12:
-          return "December";
-        default:
-          return "invalid month";
+      const JAN = "January";
+      const FEB = "February";
+      const MAR = "March";
+      const APR = "April";
+      const MAY = "May";
+      const JUN = "June";
+      const JUL = "July";
+      const AUG = "August";
+      const SEP = "September";
+      const OCT = "October";
+      const NOV = "November";
+      const DEC = "December";
+      const INV = "invalid month";
+      const MONTH_ARR = [JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC];
+      if(number > 0 && number < 13){
+        return MONTH_ARR[number-1];
+      }else{
+        return INV; 
       }
     }
   
