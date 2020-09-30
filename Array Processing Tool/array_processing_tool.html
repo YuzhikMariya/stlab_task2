@@ -8,16 +8,16 @@
         <section>
             <h1>Sub sum</h1>
             <form id="form_subSum">
-                <span>Enter array: </span>
-                <input id="arr_subSum" type="text" list="arrays">
+                <span>Enter array (x,x...): </span>
+                <input id="arr_subSum" type="text" list="arrays" pattern="(-?\d+,?)+">
                 <datalist id="arrays">
-                    <option>-1, 2, 3, -9</option>
-                    <option>2, -1, 2, 3, -9</option>
-                    <option>-1, 2, 3, -9, 11</option>
-                    <option>-2, -1, 1, 2</option>
-                    <option>100, -9, 2, -3, 5</option>
-                    <option>1, 2, 3</option>
-                    <option>-1, -2, -3</option>
+                    <option>-1,2,3,-9</option>
+                    <option>2,-1,2,3,-9</option>
+                    <option>-1,2,3,-9,11</option>
+                    <option>-2,-1,1,2</option>
+                    <option>100,-9,2,-3,5</option>
+                    <option>1,2,3</option>
+                    <option>-1,-2,-3</option>
                 </datalist>
                 <input class="btn" type="submit" value="Get sum">
             </form>
@@ -27,7 +27,7 @@
         <section>
             <h1>Search</h1>
             <form id="form_search">
-                <span>Enter array: </span>
+                <span>Enter array (x,x...): </span>
                 <input id="arr_search" type="text" list="arrays">
                 <input class="btn" type="submit" value="Search">
             </form>
@@ -37,7 +37,7 @@
         <section>
             <h1>Selection</h1>
             <form id="form_selection">
-                <span>Enter array: </span>
+                <span>Enter array (x,x...): </span>
                 <input id="arr_selection" type="text" list="arrays">
                 <input class="btn" type="submit" value="Select">
             </form>

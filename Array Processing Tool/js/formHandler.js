@@ -7,7 +7,7 @@ let arrTool = new ArrayProcessingTool();
 form_subSum.onsubmit = () => {
     let arr = document.querySelector('#arr_subSum')
     .value
-    .split(', ')
+    .split(',')
     .map(i => parseInt(i));
 
     document.querySelector('#answer_subSum').innerHTML = 
