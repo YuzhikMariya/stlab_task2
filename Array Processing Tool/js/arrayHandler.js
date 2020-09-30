@@ -56,8 +56,9 @@ class ArrayProcessingTool {
       return max;
     }
   
-    getMedium(arr) {
+    getMedium(inputArr) {
       let medium;
+      let arr = inputArr.slice();
       arr.sort(function (a, b) {
         return a - b;
       });
