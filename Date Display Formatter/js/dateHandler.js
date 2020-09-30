@@ -1,5 +1,4 @@
 class DateDisplayFormatter {
-
     static getMonthString(number) {
       const JAN = "January";
       const FEB = "February";
@@ -14,11 +13,24 @@ class DateDisplayFormatter {
       const NOV = "November";
       const DEC = "December";
       const INV = "invalid month";
-      const MONTH_ARR = [JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC];
-      if(number > 0 && number < 13){
-        return MONTH_ARR[number-1];
-      }else{
-        return INV; 
+      const MONTH_ARR = [
+        JAN,
+        FEB,
+        MAR,
+        APR,
+        MAY,
+        JUN,
+        JUL,
+        AUG,
+        SEP,
+        OCT,
+        NOV,
+        DEC,
+      ];
+      if (number > 0 && number < 13) {
+        return MONTH_ARR[number - 1];
+      } else {
+        return INV;
       }
     }
   
@@ -153,11 +165,17 @@ class DateDisplayFormatter {
       return outputRegex.join("");
     }
   
+    static calculateDays(nowDate, inputDate) {
+      return Math.ceil(
+        Math.abs(nowDate.getTime() - inputDate.getTime()) / (1000 * 3600 * 24)
+      );
+    }
+  
     static format(date, inputRegex, outputReg) {
       const MS = "ms";
       const FROM_NOW = "from now";
-      if(date.length !== inputRegex.length && inputRegex !== MS){
-          return "Invalid input format";
+      if (date.length !== inputRegex.length && inputRegex !== MS) {
+        return "Invalid input format";
       }
       if (inputRegex == MS) {
         let inputDate = new Date(parseInt(date));
@@ -172,12 +190,7 @@ class DateDisplayFormatter {
   
           case FROM_NOW:
             let nowDate = new Date();
-            return (
-              Math.ceil(
-                Math.abs(nowDate.getTime() - inputDate.getTime()) /
-                  (1000 * 3600 * 24)
-              ) + " days ago"
-            );
+            return `${this.calculateDays(nowDate, inputDate)} days ago`;
   
           case MS:
             return date;
@@ -223,12 +236,7 @@ class DateDisplayFormatter {
   
             let dateInput = new Date(year, month - 1, day);
             let nowDate = new Date();
-            return (
-              Math.ceil(
-                Math.abs(nowDate.getTime() - dateInput.getTime()) /
-                  (1000 * 3600 * 24)
-              ) + " days ago"
-            );
+            return `${this.calculateDays(nowDate, dateInput)} days ago`;
           case MS:
             let d = this.getDays(date, inputRegexObj);
             let y = this.getYears(date, inputRegexObj);
