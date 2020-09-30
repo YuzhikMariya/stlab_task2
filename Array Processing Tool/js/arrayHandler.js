@@ -62,7 +62,7 @@ class ArrayProcessingTool {
       arr.sort(function (a, b) {
         return a - b;
       });
-      let length = arr.length;
+      const length = arr.length;
       if (length % 2 == 0) {
         medium =
           arr[length / 2 - 1] + (arr[length / 2] - arr[length / 2 - 1]) / 2;
@@ -78,7 +78,7 @@ class ArrayProcessingTool {
         tempStart = 0,
         tempEnd = 0;
       for (let i = 1; i < arr.length; i++) {
-        if (arr[i] <= arr[i - 1]) {
+        if ((arr[i] <= arr[i - 1]) || (i === arr.length-1)) {
           if (tempEnd - tempStart > end - start) {
             start = tempStart;
             end = tempEnd;

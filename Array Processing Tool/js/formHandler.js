@@ -6,7 +6,7 @@ let arrTool = new ArrayProcessingTool();
 
 form_subSum.onsubmit = () => {
     if(document.querySelector('#arr_subSum').value != ''){
-        let arr = document.querySelector('#arr_subSum')
+        const arr = document.querySelector('#arr_subSum')
         .value
         .split(',')
         .map(i => parseInt(i));
@@ -22,7 +22,7 @@ form_subSum.onsubmit = () => {
 
 form_search.onsubmit = () => {
     if(document.querySelector('#arr_search').value != ''){
-        let arr = document.querySelector('#arr_search')
+        const arr = document.querySelector('#arr_search')
         .value
         .split(',')
         .map(i => parseInt(i));
@@ -37,7 +37,7 @@ form_search.onsubmit = () => {
 
 form_select.onsubmit = () => {
     if(document.querySelector('#arr_selection').value != ''){
-        let arr = document.querySelector('#arr_selection')
+        const arr = document.querySelector('#arr_selection')
         .value
         .split(',')
         .map(i => parseInt(i));
