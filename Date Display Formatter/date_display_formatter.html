@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Date Display Formatter</title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <section>
+            <h1>Date Display Formatter</h1>
+            <form>
+                <div class="input_data">
+                    <label for="date">Enter date:</label>
+                    <input id="date" type="text" list="date_list">
+                    <datalist id="date_list">
+                        <option>31102011</option>
+                        <option>20130431</option>
+                        <option>2013-04-31</option>
+                        <option>1320008400000</option>
+                        <option>1304629200000</option>
+                    </datalist>
+                </div>
+                <div  class="input_data">
+                    <label for="input_regex">Enter regex for input string:</label>
+                    <input id="input_regex" type="text" list="regex_list">
+                    <datalist id="regex_list">
+                        <option>YYYYMMDD</option>
+                        <option>DDMMYYYY</option>
+                        <option>MM-DD-YYYY</option>
+                        <option>YYYY-MM-DD</option>
+                        <option>ms</option>
+                        <option>from now</option>
+                        
+                    </datalist>
+                </div>
+                <div class="input_data">
+                    <label for="output_regex">Enter regex for output string:</label>
+                    <input id="output_regex" type="text" list="regex_list">
+                </div>
+                <input class="btn"  type="submit"  value="Transform">
+            </form>
+            <h3 id="answer">Answer will be here...</h3>
+        </section>
+
+        <script src="js/dateHandler.js"></script>
+        <script src="js/formHandler.js"></script>
+    </body>
+</html>
