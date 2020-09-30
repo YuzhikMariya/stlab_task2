@@ -73,7 +73,6 @@ class DateDisplayFormatter {
   
     static getDays(date, inputRegexObj) {
       let startDay = inputRegexObj.dayArr;
-  
       let dayStr = "";
       for (let i = 0; i < 2; i++) {
         if (startDay[i] != -1) {
@@ -81,13 +80,11 @@ class DateDisplayFormatter {
         }
       }
       let day = parseInt(dayStr);
-  
       return day;
     }
   
     static getMonths(date, inputRegexObj) {
       let startMonth = inputRegexObj.monthArr;
-  
       let monthStr = "";
       for (let i = 0; i < 2; i++) {
         if (startMonth[i] != -1) {
@@ -95,13 +92,11 @@ class DateDisplayFormatter {
         }
       }
       let month = parseInt(monthStr);
-  
       return month;
     }
   
     static getYears(date, inputRegexObj) {
       let startYear = inputRegexObj.yearArr;
-  
       let yearStr = "";
       for (let i = 0; i < 4; i++) {
         if (startYear[i] != -1) {
@@ -115,7 +110,6 @@ class DateDisplayFormatter {
         }
       }
       let year = parseInt(yearStr);
-  
       return year;
     }
   
@@ -123,13 +117,11 @@ class DateDisplayFormatter {
       let startDay = inputRegexObj.dayArr;
       let startMonth = inputRegexObj.monthArr;
       let startYear = inputRegexObj.yearArr;
-  
       let outputRegex = outputReg.split("");
       let outputRegexObj = this.getDateIndexes(outputRegex);
       let endDay = outputRegexObj.dayArr;
       let endMonth = outputRegexObj.monthArr;
       let endYear = outputRegexObj.yearArr;
-  
       for (let i = 3; i >= 0; i--) {
         if (endYear[i] != -1) {
           if (startYear[i] != -1) {
@@ -161,7 +153,6 @@ class DateDisplayFormatter {
           }
         }
       }
-  
       return outputRegex.join("");
     }
   
@@ -179,61 +170,49 @@ class DateDisplayFormatter {
       }
       if (inputRegex == MS) {
         let inputDate = new Date(parseInt(date));
-  
         switch (outputReg) {
           case "":
             let days = inputDate.getDate();
             let years = inputDate.getFullYear();
             let months = this.getMonthString(inputDate.getMonth() + 1);
-  
             return `${days} ${months} ${years}`;
-  
           case FROM_NOW:
             let nowDate = new Date();
             return `${this.calculateDays(nowDate, inputDate)} days ago`;
-  
           case MS:
             return date;
           default:
             let day = inputDate.getDate();
             let year = inputDate.getFullYear();
             let month = inputDate.getMonth() + 1;
-  
             let dateStr = "";
             if (day < 10) {
               dateStr += "0" + day;
             } else {
               dateStr += day;
             }
-  
             if (month < 10) {
               dateStr += "0" + month;
             } else {
               dateStr += month;
             }
             dateStr += year;
-  
             let inputRegexObj = this.getDateIndexes("DDMMYYYY");
-  
             return this.getDateByRegex(dateStr, inputRegexObj, outputReg);
         }
       } else {
         let inputRegexObj = this.getDateIndexes(inputRegex);
-  
         switch (outputReg) {
           case "":
             let days = this.getDays(date, inputRegexObj);
             let years = this.getYears(date, inputRegexObj);
             let months = this.getMonths(date, inputRegexObj);
-  
             let monthsStr = this.getMonthString(months);
-  
             return `${days} ${monthsStr} ${years}`;
           case FROM_NOW:
             let day = this.getDays(date, inputRegexObj);
             let year = this.getYears(date, inputRegexObj);
             let month = this.getMonths(date, inputRegexObj);
-  
             let dateInput = new Date(year, month - 1, day);
             let nowDate = new Date();
             return `${this.calculateDays(nowDate, dateInput)} days ago`;
