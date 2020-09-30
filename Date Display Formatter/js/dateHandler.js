@@ -168,7 +168,7 @@ class DateDisplayFormatter {
             let years = inputDate.getFullYear();
             let months = this.getMonthString(inputDate.getMonth() + 1);
   
-            return days + " " + months + " " + years;
+            return `${days} ${months} ${years}`;
   
           case FROM_NOW:
             let nowDate = new Date();
@@ -215,7 +215,7 @@ class DateDisplayFormatter {
   
             let monthsStr = this.getMonthString(months);
   
-            return days + " " + monthsStr + " " + years;
+            return `${days} ${monthsStr} ${years}`;
           case FROM_NOW:
             let day = this.getDays(date, inputRegexObj);
             let year = this.getYears(date, inputRegexObj);
