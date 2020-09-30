@@ -2,8 +2,6 @@ let form_subSum = document.querySelector('#form_subSum');
 let form_search = document.querySelector('#form_search');
 let form_select = document.querySelector('#form_selection');
 
-let arrTool = new ArrayProcessingTool();
-
 form_subSum.onsubmit = () => {
     if(document.querySelector('#arr_subSum').value != ''){
         const arr = document.querySelector('#arr_subSum')
@@ -13,8 +11,8 @@ form_subSum.onsubmit = () => {
 
 
         document.querySelector('#answer_subSum').innerHTML = 
-        "Sub sum O(n<sup>2</sup>) = " + arrTool.getMaxSubSum_long(arr) + "<br/>" +
-        "Sub sum O(n) = " + arrTool.getMaxSubSum_short(arr);
+        "Sub sum O(n<sup>2</sup>) = " + ArrayProcessingTool.getMaxSubSum_long(arr) + "<br/>" +
+        "Sub sum O(n) = " + ArrayProcessingTool.getMaxSubSum_short(arr);
     }
     
     return false;
@@ -28,9 +26,9 @@ form_search.onsubmit = () => {
         .map(i => parseInt(i));
 
         document.querySelector('#answer_search').innerHTML = 
-            "Min = " + arrTool.getMin(arr) + "<br/>" +
-            "Max = " + arrTool.getMax(arr) + "<br/>" +
-            "Meduim = " + arrTool.getMedium(arr);
+            "Min = " + ArrayProcessingTool.getMin(arr) + "<br/>" +
+            "Max = " + ArrayProcessingTool.getMax(arr) + "<br/>" +
+            "Meduim = " + ArrayProcessingTool.getMedium(arr);
     }
     return false;
 };
@@ -43,7 +41,7 @@ form_select.onsubmit = () => {
         .map(i => parseInt(i));
 
         document.querySelector('#answer_selection').innerHTML = 
-            "Selection = [" + arrTool.getSelection(arr) + "]";
+            "Selection = [" + ArrayProcessingTool.getSelection(arr) + "]";
     }
     return false;
 };

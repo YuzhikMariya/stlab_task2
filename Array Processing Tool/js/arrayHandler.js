@@ -1,6 +1,6 @@
 class ArrayProcessingTool {
     /* O(n^2) */
-    getMaxSubSum_long(arr) {
+    static getMaxSubSum_long(arr) {
       let maxSum = arr[0];
       for (let i = 0; i < arr.length; i++) {
         let tempSum = arr[i];
@@ -21,7 +21,7 @@ class ArrayProcessingTool {
     }
   
     /*O(n) */
-    getMaxSubSum_short(arr) {
+    static getMaxSubSum_short(arr) {
       let tempSum = 0,
         maxSum = arr[0];
       for (let i = 0; i < arr.length; i++) {
@@ -36,7 +36,7 @@ class ArrayProcessingTool {
       return maxSum;
     }
   
-    getMin(arr) {
+    static getMin(arr) {
       let min = arr[0];
       for (let i = 1; i < arr.length; i++) {
         if (arr[i] < min) {
@@ -46,7 +46,7 @@ class ArrayProcessingTool {
       return min;
     }
   
-    getMax(arr) {
+    static getMax(arr) {
       let max = arr[0];
       for (let i = 1; i < arr.length; i++) {
         if (arr[i] > max) {
@@ -56,7 +56,7 @@ class ArrayProcessingTool {
       return max;
     }
   
-    getMedium(inputArr) {
+    static getMedium(inputArr) {
       let medium;
       let arr = inputArr.slice();
       arr.sort(function (a, b) {
@@ -72,7 +72,7 @@ class ArrayProcessingTool {
       return medium;
     }
   
-    getSelection(arr) {
+    static getSelection(arr) {
       let start = 0,
         end = 0,
         tempStart = 0,
