@@ -23,6 +23,9 @@ class DateDisplayFormatter {
     }
   
     static getDateIndexes(regex) {
+      const D = "D";
+      const M = "M";
+      const Y = "Y";
       let obj = {
         yearArr: [-1, -1, -1, -1],
         monthArr: [-1, -1],
@@ -33,19 +36,19 @@ class DateDisplayFormatter {
         yearCounter = 3;
       for (let i = regex.length; i >= 0; i--) {
         switch (regex[i]) {
-          case "D":
+          case D:
             if (dayCounter >= 0) {
               obj.dayArr[dayCounter] = i;
               dayCounter--;
             }
             break;
-          case "M":
+          case M:
             if (monthCounter >= 0) {
               obj.monthArr[monthCounter] = i;
               monthCounter--;
             }
             break;
-          case "Y":
+          case Y:
             if (yearCounter >= 0) {
               obj.yearArr[yearCounter] = i;
               yearCounter--;
@@ -151,10 +154,12 @@ class DateDisplayFormatter {
     }
   
     static format(date, inputRegex, outputReg) {
-      if(date.length !== inputRegex.length){
+      const MS = "ms";
+      const FROM_NOW = "from now";
+      if(date.length !== inputRegex.length && inputRegex !== MS){
           return "Invalid input format";
       }
-      if (inputRegex == "ms") {
+      if (inputRegex == MS) {
         let inputDate = new Date(parseInt(date));
   
         switch (outputReg) {
@@ -165,7 +170,7 @@ class DateDisplayFormatter {
   
             return days + " " + months + " " + years;
   
-          case "from now":
+          case FROM_NOW:
             let nowDate = new Date();
             return (
               Math.ceil(
@@ -174,7 +179,7 @@ class DateDisplayFormatter {
               ) + " days ago"
             );
   
-          case "ms":
+          case MS:
             return date;
           default:
             let day = inputDate.getDate();
@@ -211,7 +216,7 @@ class DateDisplayFormatter {
             let monthsStr = this.getMonthString(months);
   
             return days + " " + monthsStr + " " + years;
-          case "from now":
+          case FROM_NOW:
             let day = this.getDays(date, inputRegexObj);
             let year = this.getYears(date, inputRegexObj);
             let month = this.getMonths(date, inputRegexObj);
@@ -224,7 +229,7 @@ class DateDisplayFormatter {
                   (1000 * 3600 * 24)
               ) + " days ago"
             );
-          case "ms":
+          case MS:
             let d = this.getDays(date, inputRegexObj);
             let y = this.getYears(date, inputRegexObj);
             let m = this.getMonths(date, inputRegexObj);
