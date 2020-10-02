@@ -1,6 +1,4 @@
 class ArraySorter{
-
-
     swap(arr, indexA, indexB){
         let temp = arr[indexA];
         arr[indexA] = arr[indexB];
@@ -41,7 +39,6 @@ class ArraySorter{
     }
 
     selectionSort(arr){
-        
         for (let i = 0; i < arr.length - 1; i++) {
             let indexMin = i;
             for (let j = i + 1; j < arr.length; j++) {
@@ -59,14 +56,12 @@ class ArraySorter{
     merge(arrFirst, arrSecond){
         const arrSort = [];
         let i = 0, j = 0;
-
         while (i < arrFirst.length && j < arrSecond.length) {
             arrSort.push(
                 (arrFirst[i] < arrSecond[j]) ?
                     arrFirst[i++] : arrSecond[j++]
             );
         }
-
         return [
             ...arrSort,
             ...arrFirst.slice(i),
@@ -75,17 +70,12 @@ class ArraySorter{
     }
 
     mergeSort(arr){
-
         if (arr.length <= 1) {
             return arr;
         }
-
         const middle = Math.floor(arr.length / 2);
         const arrLeft = arr.slice(0, middle);
         const arrRight = arr.slice(middle);
-
         return this.merge(this.mergeSort(arrLeft), this.mergeSort(arrRight));;
     }
-
-
 }
