@@ -1,10 +1,10 @@
 class BinaryConverter{
 
-    convert(number, from, to) {
+    static convert(number, from, to) {
         return this.fromDec(this.toDec(number, from), to);
     }
 
-    toDec(number, from) {
+    static toDec(number, from) {
         let result = 0;
         for(let i = 0; i < number.length; i++){
             result += this.getDigit(number[number.length-1-i]) * Math.pow(from, i);
@@ -12,7 +12,7 @@ class BinaryConverter{
         return result;
     }
 
-    fromDec(number, to) {
+    static fromDec(number, to) {
         let integerPart, residue, result = [];
         while(number >= 1) {
             integerPart = parseInt(number/to);
@@ -27,7 +27,7 @@ class BinaryConverter{
     }
 
 
-    getDigit(char) {
+    static getDigit(char) {
         let digit = char.charCodeAt() - 48;
         if(digit > 48)
             digit -= 39;
