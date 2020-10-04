@@ -1,23 +1,26 @@
 let form = document.querySelector('form');
 
 form.onsubmit = () => {
+    const SHAKER = "Shaker", 
+        INSERT = "Insert", 
+        SELECTION = "Selection", 
+        MERGE = "Merge";
     let arrayOfStr = document.querySelector('#array').value.split(' ');
     let array = arrayOfStr.map((i) => parseInt(i));
     let type = document.querySelector('#type').value;
-    const arrayHandler = new ArraySorter();
     let ascendingArray;
     switch(type){
-        case "Shaker":
-            ascendingArray = arrayHandler.shakerSort(array);
+        case SHAKER:
+            ascendingArray = ArraySorter.shakerSort(array);
             break;
-        case "Insert":
-            ascendingArray = arrayHandler.insertSort(array);
+        case INSERT:
+            ascendingArray = ArraySorter.insertSort(array);
             break;
-        case "Selection":
-            ascendingArray = arrayHandler.selectionSort(array);
+        case SELECTION:
+            ascendingArray = ArraySorter.selectionSort(array);
             break;
-        case "Merge":
-            ascendingArray = arrayHandler.mergeSort(array);
+        case MERGE:
+            ascendingArray = ArraySorter.mergeSort(array);
             break;
     }
     let answer = document.querySelector('#answer');

@@ -1,23 +1,26 @@
 class ArraySorter{
-    swap(arr, indexA, indexB){
+    static swap(inputArr, indexA, indexB){
+        let arr = [...inputArr];
         let temp = arr[indexA];
         arr[indexA] = arr[indexB];
         arr[indexB] = temp;
+        return arr;
     }
 
-    shakerSort(arr){
+    static shakerSort(inputArr){
+        let arr = [...inputArr];
         let left = 0;
         let right = arr.length - 1;
         while (left <= right) {
             for (let i = right; i > left; i--){
                 if (arr[i - 1] > arr[i]){
-                    this.swap(arr, i, i-1);
+                    arr = this.swap(arr, i, i-1);
                 }
             }
             left++;
             for (let i = left; i < right; i++){
                 if (arr[i] > arr[i + 1]){
-                    this.swap(arr, i, i+1);
+                    arr = this.swap(arr, i, i+1);
                 }
             }
             right--;
@@ -25,7 +28,8 @@ class ArraySorter{
         return arr;
     }
 
-    insertSort(arr){
+    static insertSort(inputArr){
+        let arr = [...inputArr];
         for (let i = 1; i < arr.length; i++) {
             let x = arr[i];
             let j = i;
@@ -38,7 +42,8 @@ class ArraySorter{
         return arr;
     }
 
-    selectionSort(arr){
+    static selectionSort(inputArr){
+        let arr = [...inputArr];
         for (let i = 0; i < arr.length - 1; i++) {
             let indexMin = i;
             for (let j = i + 1; j < arr.length; j++) {
@@ -47,20 +52,17 @@ class ArraySorter{
                 }
             }
             if (indexMin !== i) {
-                this.swap(arr, i, indexMin);
+                arr = this.swap(arr, i, indexMin);
             }
         }
         return arr;
     }
 
-    merge(arrFirst, arrSecond){
+    static merge(arrFirst, arrSecond){
         const arrSort = [];
         let i = 0, j = 0;
         while (i < arrFirst.length && j < arrSecond.length) {
-            arrSort.push(
-                (arrFirst[i] < arrSecond[j]) ?
-                    arrFirst[i++] : arrSecond[j++]
-            );
+            arrSort.push((arrFirst[i] < arrSecond[j]) ? arrFirst[i++] : arrSecond[j++]);
         }
         return [
             ...arrSort,
@@ -69,7 +71,7 @@ class ArraySorter{
         ];
     }
 
-    mergeSort(arr){
+    static mergeSort(arr){
         if (arr.length <= 1) {
             return arr;
         }
