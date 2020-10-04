@@ -1,7 +1,7 @@
 class BinaryConverter{
 
     static convert(number, from, to) {
-        return this.fromDec(this.toDec(number, from), to);
+        return this.fromDec(this.toDec(number, from), to).toUpperCase();
     }
 
     static toDec(number, from) {
