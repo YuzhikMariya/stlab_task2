@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array Sorter</title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <section>
+            <h1>Array Sorter</h1>
+            <form>
+                <div class="input_data">
+                    <label for="array">Enter array:</label>
+                    <input id="array" type="text" required>
+                </div>
+                <div class="input_data">
+                    <label for="type">Enter sort type:</label>
+
+                    <select id="type">
+                        <option>Shaker</option>
+                        <option>Insert</option>
+                        <option>Selection</option>
+                        <option>Merge</option>
+                    </select>
+                </div>
+                <div class="input_data">
+                    <label for="direction">Descending</label>
+                    <input type="checkbox" value="Descending" id="direction">
+                </div>
+                <input class="btn" type="submit" value="Sort">
+
+
+            </form>
+            <p id="answer">Answer will be here...</p>
+        </section>
+
+        <script src="js/arrayHandler.js"></script>
+        <script src="js/formHandler.js"></script>
+    </body>
+</html>

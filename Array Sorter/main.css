@@ -1,0 +1,20 @@
+section{
+    width: 40%;
+    margin: auto;
+    background-color: palegreen;
+    padding: 5em;
+    text-align: center;
+}
+
+.input_data{
+    margin: 1em;
+}
+
+.btn{
+    display: inline-block;
+    background-color: rebeccapurple;
+    color: white;
+    padding: 1em;
+    border-radius: 30%;
+}
+
