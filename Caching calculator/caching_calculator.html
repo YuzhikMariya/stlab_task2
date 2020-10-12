@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Caching calculator</title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <section>
+            <h1>Caching calculator</h1>
+            <form id="form_calculate">
+                <div class="input_data">
+                    <label for="numberA">Enter the first number:</label>
+                    <input id="numberA" type="text">
+                </div>
+                <div  class="input_data">
+                    <label for="operation">Select operation:</label>
+                    <select id="operation">
+                        <option>+</option>
+                        <option>-</option>
+                        <option>*</option>
+                        <option>/</option>
+                        <option>^</option>
+                        <option>log</option>
+                    </select>
+                </div>
+                <div class="input_data">
+                    <label for="numberB">Enter the second number:</label>
+                    <input id="numberB" type="text">
+                </div>
+                <input class="btn"  type="submit"  value="Calculate">
+            </form>
+            <p id="answer">Answer will be here...</p>
+        </section>
+        <section>
+            <form id="form_register_operation">
+                
+                <h3>Cached operations:</h3>
+                <input type="checkbox" id="add" class="operations" value="+">+
+                <input type="checkbox" id="sub" class="operations" value="-">-
+                <input type="checkbox" id="mult" class="operations" value="*">*
+                <input type="checkbox" id="div" class="operations" value="/">/
+                <input type="checkbox" id="pow" class="operations" value="^">^
+                <input type="checkbox" id="log" class="operations" value="log">log
+                <input class="btn"  type="submit"  value="Ok">
+            </form>
+            
+        </section>
+
+        <script src="js/operations.js"></script>
+        <script src="js/cachingAlgorithm.js"></script>
+        <script src="js/calculator.js"></script>
+        <script src="js/formHandler.js"></script>
+    </body>
+</html>
