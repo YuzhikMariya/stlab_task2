@@ -2,14 +2,6 @@ class CachingCalculator{
 
     _cache = {};
 
-    _operations = {'+': (a, b) => a + b, 
-                '-': (a, b) => a - b, 
-                '*': (a, b) => a * b, 
-                '/': (a, b) => a / b, 
-                '^': (a, b) => Math.pow(a, b), 
-                'log': (a, b) => Math.log(b) / Math.log(a)
-    };
-
     _cachedOperations = [];
 
     registerOperations(operations){
@@ -21,21 +13,17 @@ class CachingCalculator{
 
 	calculate(a, b, op) {
         let cacheKey = a + op + b;
-        
-
         if(this.isCachedOperation(op)){
             let result = this.isCached(a, b, op);
             if (  result ){
                 alert("from cache");
             } else {
-                result = this._operations[op](a, b);
-                this._cache[cacheKey] = result;
-                
+                result = OPERATIONS[op](a, b);
+                this._cache[cacheKey] = result;   
             }
             return result;
-
         }else{
-            return this._operations[op](a, b);
+            return OPERATIONS[op](a, b);
         }
 	}
 
