@@ -15,9 +15,7 @@ class CachingCalculator{
         let cacheKey = a + op + b;
         if(this.isCachedOperation(op)){
             let result = this.isCached(a, b, op);
-            if (  result ){
-                alert("from cache");
-            } else {
+            if(!result){
                 result = OPERATIONS[op](a, b);
                 this._cache[cacheKey] = result;   
             }
@@ -31,18 +29,15 @@ class CachingCalculator{
 	isCached(a, b, op){
 		let result = null;
 		let searchedKeys = [a + op + b];
-
 		if (op === '+' || op === '*' ){
 			searchedKeys.push(b + op + a);
 		}
-
 		for (let key in searchedKeys) {
             result = this._cache[searchedKeys[key]];
 			if (result){
 				break;
 			}
 		};
-
 		return result;
     }
     
