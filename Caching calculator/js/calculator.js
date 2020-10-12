@@ -12,42 +12,13 @@ class CachingCalculator{
     }
 
 	calculate(a, b, op) {
-        let cacheKey = a + op + b;
-        if(this.isCachedOperation(op)){
-            let result = this.isCached(a, b, op);
-            if(!result){
-                result = OPERATIONS[op](a, b);
-                this._cache[cacheKey] = result;   
-            }
-            return result;
+        if(CachingAlgorithm.isCachedOperation(op, this._cachedOperations)){
+            return CachingAlgorithm.cache(a, b, op, this._cache);
         }else{
             return OPERATIONS[op](a, b);
         }
 	}
 
 
-	isCached(a, b, op){
-		let result = null;
-		let searchedKeys = [a + op + b];
-		if (op === '+' || op === '*' ){
-			searchedKeys.push(b + op + a);
-		}
-		for (let key in searchedKeys) {
-            result = this._cache[searchedKeys[key]];
-			if (result){
-				break;
-			}
-		};
-		return result;
-    }
-    
-    isCachedOperation(op){
-        let result = false;
-        this._cachedOperations.forEach(el => {
-            if(el == op){
-                result = true;
-            }
-        });
-        return result;
-    }
+	
 }
