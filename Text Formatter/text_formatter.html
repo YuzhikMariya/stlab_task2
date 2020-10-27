@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Text Formatter</title>
+        <link rel="stylesheet" href="./main.css" type="text/css">
+    </head>
+    <body>
+        <section>
+            <h1>Text Formatter</h1>
+            <form>
+                <div class="input_data">
+                    <label for="text">Enter text:</label>
+                    <textarea id="text"></textarea>
+                </div>
+                <div class="input_data">
+                    <label for="string_length">Enter max string length:</label>
+                    <input id="string_length" type="number">
+                </div>
+                <div class="input_data">
+                    <label for="string_count">Enter max string count:</label>
+                    <input id="string_count" type="number">
+                </div>
+                <div class="input_data">
+                    <label for="format_type">Enter format type</label>
+                    <input id="format_type" list="type_list">
+                    <datalist id="type_list">
+                        <option>Word</option>
+                        <option>Char</option>
+                        <option>Sentence</option>
+                        <option>None</option>
+                    </datalist>
+                </div>
+                <div class="input_data">
+                    <input type="submit" value="Format">
+                </div>
+                
+            </form>
+            <textarea id="answer"></textarea>
+        </section>
+        
+        <script src="js/textHandler.js"></script>
+        <script src="js/formHandler.js"></script>
+
+    </body>
+</html>

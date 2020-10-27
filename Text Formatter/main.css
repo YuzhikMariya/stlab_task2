@@ -1,0 +1,17 @@
+section{
+    width: 60%;
+    margin: auto;
+    padding: 5em;
+    background-color: mediumturquoise;
+    border-radius: 90%;
+    text-align: center;
+}
+
+.input_data{
+    padding: 1em;
+}
+
+textarea{
+    width: 70%;
+    height: 20vh;
+}
